@@ -118,6 +118,18 @@ frontend/     PWA: index.html, app.js, style.css, service worker, manifest
 docs/         API description, pitch deck and script
 ```
 
+## Team
+
+Built by three people at the TUM.ai hackathon (Challenge B):
+
+- **Florian Ramaj** ([@Florian-Ramaj](https://github.com/Florian-Ramaj)): letter types and templates, date and cost
+  calculation in code, PDF and Word export, multi-language intake, deadline guard, claim file, and most of the
+  app logic (voice capture, camera and photo attachments, plan vs. actual, summaries).
+- **Dennis**: first backend prototype (daily report analysis, summaries, defect notices) and the pitch deck.
+- **Mostafa** (`mostafaramadanmohamed`): design and layout of the PWA (menu, animations, screens).
+
+This repository is a clean upload of the hackathon project without its original commit history.
+
 ## Limits of the prototype
 
 - Speech recognition is the browser's own. It works for one speaker; meetings with several people
