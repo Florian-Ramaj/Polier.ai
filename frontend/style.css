@@ -1,0 +1,1557 @@
+:root {
+  --hintergrund: #F9EEE2;
+  --text: #4A3B32;
+  --text-leise: #9A8676;
+  --akzent: #B9694A;
+  --akzent-dunkel: #96502F;
+  --rand: #EBD7C3;
+  --flaeche: #FFF9F2;
+  --rund: 22px;
+  --schrift: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", "Nunito", system-ui, sans-serif;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--hintergrund);
+  color: var(--text);
+  font-family: var(--schrift);
+  font-size: 16px;
+}
+
+main {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 16px 28px;
+  box-sizing: border-box;
+}
+
+section {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+}
+
+#seite_start {
+  align-items: center;
+  gap: 28px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-leise);
+  font-size: 14px;
+}
+
+input, textarea, select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border: 1px solid var(--rand);
+  border-radius: var(--rund);
+  background: var(--flaeche);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 16px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--akzent);
+}
+
+#mikro {
+  width: 92px;
+  height: 86px;
+  border-radius: 48% 52% 50% 50% / 52% 48% 52% 48%;
+  border: none;
+  background: var(--akzent);
+  color: white;
+}
+
+#mikro.aktiv {
+  background: #A12B2B;
+}
+
+button {
+  min-height: 52px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.haupt {
+  border: none;
+  background: var(--akzent);
+  color: white;
+}
+
+.neben {
+  border: 1px solid var(--akzent);
+  background: transparent;
+  color: var(--akzent-dunkel);
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+
+#meldung {
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  margin: 0 0 12px;
+  padding: 14px 16px;
+  border-radius: var(--rund);
+  background: #F6DDD3;
+  color: #7A2A1E;
+}
+
+.hinweis {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: var(--rund);
+  background: #F4E6CC;
+  color: #6B4510;
+}
+
+.klein {
+  margin: 0;
+  color: var(--text-leise);
+  font-size: 13px;
+}
+
+#absaetze {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menue {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  width: 48px;
+  height: 48px;
+  min-height: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--flaeche);
+  color: var(--text);
+  font-size: 20px;
+}
+
+.menue-zeile {
+  text-align: left;
+  padding: 16px 22px;
+  border: 1px solid var(--rand);
+  border-radius: var(--rund);
+  background: var(--flaeche);
+  color: var(--text);
+  font-size: 18px;
+}
+
+.menue-zeile small {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-leise);
+  font-size: 13px;
+}
+
+#liste, #dateiliste {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--text-leise);
+}
+
+.punkt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--rand);
+  border-radius: var(--rund);
+  background: var(--flaeche);
+  color: var(--text);
+}
+
+.punkt input {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  padding: 0;
+  accent-color: var(--akzent);
+}
+
+.punkt span:first-of-type {
+  flex: 1;
+}
+
+.punkt button {
+  min-height: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-leise);
+  font-size: 13px;
+}
+
+.erledigt {
+  text-decoration: line-through;
+  color: var(--text-leise);
+}
+
+.ueberfaellig {
+  color: #A12B2B;
+  font-weight: 500;
+}
+
+.datei {
+  text-align: left;
+  padding: 14px 18px;
+  border: 1px solid var(--rand);
+  border-radius: var(--rund);
+  background: var(--flaeche);
+  color: var(--text);
+}
+
+.zeile {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.zeile input {
+  flex: 1;
+  min-width: 0;
+  border-radius: 999px;
+  padding: 14px 20px;
+}
+
+.zeile button {
+  flex: none;
+  padding: 0 22px;
+}
+
+#mikro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#meldung.ok {
+  background: #E8EBD5;
+  color: #4A5A22;
+}
+
+.schleier {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(58, 47, 42, 0.4);
+}
+
+.blatt {
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 20px 28px;
+  border-radius: 28px 28px 0 0;
+  background: var(--flaeche);
+}
+
+.blatt h1 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.wahl-haupt {
+  border: none;
+  background: var(--akzent);
+  color: white;
+}
+
+.wahl-haupt small {
+  color: #FBE3D8;
+}
+
+#notizliste {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  color: var(--text-leise);
+}
+
+.tag {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tag-kopf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-kopf h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tag-kopf button {
+  min-height: 40px;
+  padding: 0 18px;
+}
+
+.notiz {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px;
+  border: 1px solid var(--rand);
+  border-radius: var(--rund);
+  background: var(--flaeche);
+  color: var(--text);
+}
+
+.notiz .weg {
+  align-self: flex-end;
+  min-height: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-leise);
+  font-size: 13px;
+}
+
+#senden {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#senden:disabled {
+  opacity: 0.5;
+}
+
+.zeile #senden {
+  padding: 0;
+}
+
+#seite_start {
+  max-width: 300px;
+  gap: 40px;
+}
+
+#seite_start h1 {
+  font-size: 21px;
+}
+
+#seite_start svg {
+  width: 32px;
+  height: 32px;
+}
+
+.zeile {
+  position: relative;
+}
+
+.zeile input {
+  padding: 13px 54px 13px 20px;
+  font-size: 15px;
+}
+
+.zeile #senden {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  min-height: 0;
+}
+
+.zeile #senden svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Kamera-Knopf: ein <label> über dem versteckten Datei-Feld,
+   bekommt dieselbe Optik wie die Nebenknoepfe */
+#foto_knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+}
+
+/* Schalter "Fotos anhängen" auf der Briefseite */
+.schalter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border-radius: var(--rund);
+  background: #F4E6CC;
+  color: #6B4510;
+  cursor: pointer;
+}
+
+.schalter input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--akzent);
+  flex: none;
+}
+
+/* Ergebnis der Zusammenfassung */
+#z_ergebnis {
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+#z_ergebnis h2 {
+  margin: 18px 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+#z_ergebnis ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+#z_ergebnis li {
+  margin-bottom: 6px;
+  line-height: 1.45;
+}
+
+#z_ergebnis button {
+  width: 100%;
+  margin-top: 8px;
+  text-align: left;
+  padding: 12px 16px;
+  min-height: 0;
+  border-radius: var(--rund);
+  line-height: 1.4;
+}
+
+#seite_zusammen textarea,
+#seite_zusammen select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Soll-Ist-Seite
+   Eine Zeile ist auf dem Handy eine Karte, nicht fuenf Felder nebeneinander:
+   Gewerk und Taetigkeit ueber die volle Breite, darunter Einheit, Soll, Ist. */
+.sollzeile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: var(--rund);
+  background: #F0EAE0;
+}
+
+.sollkopf {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+/* Bahn fuer den Regler, mit einer Marke beim Soll */
+.sollbahn {
+  position: relative;
+  padding: 6px 0;
+}
+
+.sollbahn input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+/* Der geschaffte Teil wird eingefaerbt: --fort setzt das Skript */
+.sollbahn input[type="range"]::-webkit-slider-runnable-track {
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(to right,
+    var(--akzent) 0 var(--fort, 0%), #E0D6C8 var(--fort, 0%) 100%);
+}
+
+.sollbahn input[type="range"]::-moz-range-track {
+  height: 14px;
+  border-radius: 999px;
+  background: #E0D6C8;
+}
+
+.sollbahn input[type="range"]::-moz-range-progress {
+  height: 14px;
+  border-radius: 999px;
+  background: var(--akzent);
+}
+
+.sollbahn input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  margin-top: -7px;
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+  background: var(--akzent);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.sollbahn input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+  background: var(--akzent);
+}
+
+/* Marke an der Stelle, die dem Soll entspricht */
+.sollmarke {
+  position: absolute;
+  top: 8px;
+  width: 3px;
+  height: 18px;
+  margin-left: -1px;
+  border-radius: 2px;
+  background: var(--text);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.sollstand {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.sollzeile.ueber .sollstand {
+  color: #4A5A22;
+  font-weight: 600;
+}
+
+.sollzeile .weg {
+  align-self: flex-end;
+  min-height: 0;
+  padding: 6px 4px;
+  border: none;
+  background: transparent;
+  color: var(--akzent-dunkel);
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#s_zeilen,
+#s_ergebnis {
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+#seite_soll textarea,
+#seite_soll input[type="number"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.abweichung {
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-radius: var(--rund);
+  background: #F0EAE0;
+}
+
+.abweichung strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.abweichung .satz {
+  font-size: 17px;
+}
+
+.abweichung .unterschied {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.abweichung .balken {
+  height: 8px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: #DDD2C2;
+  overflow: hidden;
+}
+
+.abweichung .balken span {
+  display: block;
+  height: 100%;
+  background: var(--akzent);
+}
+
+.abweichung.kritisch {
+  background: #F7DCD2;
+  box-shadow: inset 3px 0 0 #B23A1E;
+}
+
+.abweichung.kritisch .balken span {
+  background: #B23A1E;
+}
+
+.abweichung .marke {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #B23A1E;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#s_ergebnis h2 {
+  margin: 18px 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#s_ergebnis .warum {
+  display: block;
+  margin: 6px 2px 14px;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+/* Firmen-Seite */
+#seite_firmen h2 {
+  width: 100%;
+  max-width: 420px;
+  margin: 22px 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+}
+
+#f_liste {
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+#f_liste .notiz {
+  position: relative;
+  padding-right: 34px;
+}
+
+#f_liste .weg {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  min-height: 0;
+  padding: 0 6px;
+  border: none;
+  background: transparent;
+  color: var(--akzent-dunkel);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+body.start {
+  overflow: hidden;
+}
+
+body.start main {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  padding: 16px;
+}
+
+.menue {
+  z-index: 5;
+}
+
+#seite_start {
+  flex: 1;
+  width: 100%;
+  max-width: 420px;
+  gap: 0;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+#seite_start .mitte {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+#seite_start .unten {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 8px;
+}
+
+.zeile {
+  align-items: center;
+}
+
+.zeile input {
+  font-size: 16px;
+}
+
+#foto_knopf {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid var(--rand);
+  background: var(--flaeche);
+  color: var(--text);
+}
+
+#foto_knopf svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Menü-Leiste: Text rutscht beim Scrollen unter den Knopf, nicht dahinter */
+body:not(.start)::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  background: var(--hintergrund);
+  z-index: 4;
+}
+
+body.start #meldung {
+  margin-top: 52px;
+}
+
+/* Aufnahme läuft: Mikro pulsiert */
+#mikro.aktiv {
+  animation: puls 1.4s ease-out infinite;
+}
+
+#mikro_stand {
+  margin: 0;
+  text-align: center;
+}
+
+@keyframes puls {
+  0% { box-shadow: 0 0 0 0 rgba(161, 43, 43, 0.45); }
+  100% { box-shadow: 0 0 0 30px rgba(161, 43, 43, 0); }
+}
+
+/* Laden: kleiner Kreisel */
+@keyframes dreh {
+  to { transform: rotate(360deg); }
+}
+
+button.laedt::after,
+#meldung.bewegt::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  vertical-align: -3px;
+  animation: dreh 0.8s linear infinite;
+}
+
+#meldung.bewegt::before {
+  margin: 0 10px 0 0;
+}
+
+#senden.laedt svg {
+  display: none;
+}
+
+#senden.laedt::after {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mikro.aktiv,
+  button.laedt::after,
+  #meldung.bewegt::before {
+    animation-duration: 3s;
+  }
+}
+
+#mikro.aktiv {
+  pointer-events: none;
+}
+
+body.start main {
+  height: var(--hoehe, 100dvh);
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+}
+
+#seite_start .unten {
+  padding-bottom: 20px;
+}
+
+
+/* ===== Design: eckig, rot, klar (Baufirma) ===== */
+:root {
+  --hintergrund: #FFFFFF;
+  --text: #17181A;
+  --text-leise: #6A6F76;
+  --akzent: #D72622;
+  --akzent-dunkel: #B01E1B;
+  --rand: #D5D8DD;
+  --flaeche: #FFFFFF;
+  --schrift: Arial, "Helvetica Neue", sans-serif;
+  --kopf: "DIN Alternate", "DIN Condensed", "Roboto Condensed", "Arial Narrow", sans-serif-condensed, Arial, sans-serif;
+}
+
+* {
+  border-radius: 0 !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  color: #34373A;
+}
+
+h1, h2 {
+  font-family: var(--kopf);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--text);
+}
+
+h1 { font-size: 34px; }
+
+.punkt-rot { color: var(--akzent); }
+
+/* Kopfleiste */
+body::before,
+body:not(.start)::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--rand);
+  z-index: 4;
+}
+
+
+
+.menue {
+  top: 6px;
+  left: 8px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  color: var(--text);
+}
+
+main,
+body.start main {
+  padding-top: 76px;
+}
+
+body.start main {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+body.start #meldung {
+  margin-top: 0;
+}
+
+/* Bedienelemente */
+button, input, textarea, select {
+  min-height: 48px;
+}
+
+textarea {
+  min-height: 0;
+}
+
+button {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 3px solid #17181A;
+  outline-offset: 2px;
+}
+
+input, textarea, select {
+  border: 1px solid #17181A;
+  background: #FFFFFF;
+}
+
+.haupt {
+  background: var(--akzent);
+  color: #FFFFFF;
+}
+
+.neben {
+  border: 1.5px solid #17181A;
+  color: #17181A;
+  background: transparent;
+}
+
+.textlink {
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--akzent);
+  font-size: 15px;
+  text-align: left;
+}
+
+/* Startseite */
+#seite_start .mitte {
+  align-items: flex-start;
+  justify-content: center;
+  gap: 22px;
+}
+
+#seite_start h1 {
+  font-size: 48px;
+  text-align: left;
+}
+
+.unterzeile {
+  margin: 0;
+  max-width: 280px;
+  color: #34373A;
+  line-height: 1.4;
+}
+
+.mic-zeile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mic-text p {
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+#mikro {
+  width: 96px;
+  height: 96px;
+  background: var(--akzent);
+  border-bottom: 6px solid #17181A;
+}
+
+#mikro.aktiv {
+  background: #17181A;
+  border-bottom-color: var(--akzent);
+}
+
+@keyframes puls {
+  0% { box-shadow: 0 0 0 0 rgba(215, 38, 34, 0.5); }
+  100% { box-shadow: 0 0 0 26px rgba(215, 38, 34, 0); }
+}
+
+#mikro_stand {
+  text-align: left;
+  color: var(--akzent);
+}
+
+.zeile input {
+  border: 1px solid #17181A;
+  padding: 12px 56px 12px 14px;
+}
+
+#foto_knopf {
+  border: 1px solid #17181A;
+  background: #FFFFFF;
+}
+
+.zeile #senden {
+  right: 4px;
+  width: 40px;
+  height: 40px;
+  background: #17181A;
+}
+
+/* Meldungen */
+#meldung {
+  background: #FBE9E8;
+  color: #8A1512;
+  border-left: 4px solid var(--akzent);
+}
+
+#meldung.ok {
+  background: #E7F1E9;
+  color: #1D5A2E;
+  border-left-color: #1D5A2E;
+}
+
+.hinweis {
+  background: #F3F4F6;
+  color: #34373A;
+  border-left: 4px solid #17181A;
+}
+
+/* Listen statt Karten */
+.menue-zeile {
+  position: relative;
+  padding: 18px 36px 18px 0;
+  border: none;
+  border-bottom: 1px solid var(--rand);
+  background: transparent;
+  font-family: var(--kopf);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.menue-zeile::after {
+  content: "→";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--akzent);
+  font-family: var(--schrift);
+  font-size: 22px;
+}
+
+.menue-zeile small {
+  font-family: var(--schrift);
+  font-weight: 400;
+}
+
+.punkt, .notiz, .datei {
+  border: none;
+  border-bottom: 1px solid var(--rand);
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.punkt input {
+  accent-color: var(--akzent);
+}
+
+.ueberfaellig {
+  color: var(--akzent-dunkel);
+}
+
+.tag-kopf {
+  border-bottom: 1px solid #17181A;
+  padding-bottom: 6px;
+}
+
+.tag-kopf button {
+  border: none;
+  background: transparent;
+  color: var(--akzent);
+  padding: 0;
+  min-height: 40px;
+}
+
+.tag-kopf h2 {
+  font-size: 22px;
+}
+
+/* Auswahl-Blatt */
+.blatt {
+  background: #FFFFFF;
+  border-top: 6px solid var(--akzent);
+}
+
+.blatt h1 {
+  text-align: left;
+  font-size: 28px;
+}
+
+.wahl-haupt {
+  background: var(--akzent);
+  color: #FFFFFF;
+  border: none;
+}
+
+.wahl-haupt::after {
+  color: #FFFFFF;
+}
+
+.wahl-haupt small {
+  color: #FFE3E1;
+}
+
+.wahl-haupt, .menue-zeile.wahl-haupt {
+  padding-left: 16px;
+}
+
+.schleier {
+  background: rgba(23, 24, 26, 0.55);
+}
+
+
+/* Kein fremder Farbrand unten in der installierten App */
+html, body {
+  background: #FFFFFF;
+}
+
+body.start main {
+  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Gespräch wird aufgenommen */
+#z_mikro.aufnahme {
+  background: var(--akzent);
+  border-color: var(--akzent);
+  color: #FFFFFF;
+  animation: puls 1.4s ease-out infinite;
+}
+
+#z_stand {
+  border-left-color: var(--akzent);
+  color: var(--akzent-dunkel);
+}
+
+
+/* Keine warmen Reste mehr aus dem alten Design */
+.hinweis, .schalter, #fehlend, #foto_stand, #z_stand {
+  background: #F3F4F6;
+  color: #34373A;
+  border-left: 4px solid #17181A;
+}
+
+#z_stand {
+  border-left-color: var(--akzent);
+  color: var(--akzent-dunkel);
+}
+
+.wahl-haupt small {
+  color: #FFE3E1;
+}
+
+/* Unten nichts Farbiges in der installierten App */
+body.start main,
+main {
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  background: #FFFFFF;
+}
+
+/* Besprechung: Aufbau wie der Startbildschirm */
+#seite_zusammen {
+  align-items: stretch;
+}
+
+#seite_zusammen h1 {
+  font-size: 44px;
+}
+
+#seite_zusammen #z_mikro {
+  width: 96px;
+  height: 96px;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: var(--akzent);
+  border-bottom: 6px solid #17181A;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#seite_zusammen #z_mikro.aktiv {
+  background: #17181A;
+  border-bottom-color: var(--akzent);
+  animation: puls 1.4s ease-out infinite;
+}
+
+#z_mikro_text {
+  margin: 0;
+  line-height: 1.4;
+}
+
+#z_text {
+  min-height: 180px;
+}
+
+
+#frage_text {
+  margin: 0 0 4px;
+  white-space: pre-line;
+  line-height: 1.5;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+
+/* Plan als Zeitstrahl */
+#plan_stand {
+  margin: -6px 0 6px;
+}
+
+#liste {
+  display: block;
+}
+
+.schritt {
+  position: relative;
+  padding: 0 0 20px 32px;
+}
+
+.schritt::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 22px;
+  bottom: 0;
+  width: 2px;
+  background: var(--rand);
+}
+
+.schritt:last-child::before {
+  display: none;
+}
+
+.knoten {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  padding: 0;
+  border: 2px solid #17181A;
+  background: #FFFFFF;
+  color: #FFFFFF;
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.schritt.fertig .knoten {
+  background: var(--akzent);
+  border-color: var(--akzent);
+}
+
+.schritt.spaet .knoten {
+  border-color: var(--akzent);
+}
+
+.schritt-kopf {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.schritt-text {
+  flex: 1;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.schritt.fertig .schritt-text {
+  color: var(--text-leise);
+  text-decoration: line-through;
+}
+
+.schritt-frist {
+  font-size: 12px;
+  color: var(--text-leise);
+  white-space: nowrap;
+}
+
+.schritt.spaet .schritt-frist {
+  color: var(--akzent);
+}
+
+.schritt-notiz {
+  margin-top: 6px;
+  padding-left: 10px;
+  border-left: 2px solid var(--rand);
+  font-size: 13px;
+  line-height: 1.4;
+  color: #34373A;
+}
+
+
+.notiz-text {
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  width: 100%;
+}
+
+/* Kopie an Dritte: Ueberschrift ueber der Haken-Liste */
+.feldname {
+  margin: 0 0 6px;
+  color: var(--text-leise);
+  font-size: 14px;
+}
+
+#kopie_liste {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+#kopie_liste .schalter {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  color: var(--text);
+}
+
+/* Erfolgsmeldung direkt bei den Export-Knoepfen */
+.hinweis.gut {
+  background: #E8EBD5;
+  color: #4A5A22;
+}
+
+/* Sprachwahl am Mikrofon: schlicht wie ein Textlink, damit sie den Knopf
+   nicht ueberstrahlt */
+.sprachwahl {
+  display: block;
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  margin: 0 0 10px;
+  padding: 4px 4px 4px 0;
+  border: none;
+  border-bottom: 1.5px solid #17181A;
+  background: transparent;
+  font-size: 15px;
+  color: #17181A;
+}
+
+/* Fremde Sprache gewaehlt: deutlich zeigen, damit niemand aus Versehen
+   auf Tuerkisch eingestellt Deutsch spricht */
+.sprachwahl.fremd {
+  border-bottom-color: var(--akzent);
+  color: var(--akzent);
+  font-weight: 700;
+}
+
+#start_notizen {
+  display: block;
+}
+
+/* Fristenwaechter: Streifen auf der Startseite */
+.waechter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border: none;
+  border-left: 4px solid #C77700;
+  background: #FFF3DC;
+  color: #5A3A00;
+  text-align: left;
+  font-weight: 400;
+}
+
+.waechter strong {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.waechter small {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* aelter als ein Tag: rot, weil "unverzueglich" dann schon knapp ist */
+.waechter.dringend {
+  border-left-color: var(--akzent);
+  background: #FDE8E6;
+  color: #7A1A12;
+}
+
+/* Liste: darf laenger werden als der Bildschirm */
+#waechter_blatt .blatt {
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+.waechter-eintrag {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0 4px;
+  border-top: 1px solid #D9D9D9;
+}
+
+.waechter-eintrag strong {
+  font-size: 18px;
+}
+
+.waechter-eintrag small {
+  color: #5C5F66;
+  font-size: 13px;
+}
+
+.waechter-eintrag p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.waechter-eintrag .regel {
+  padding-left: 10px;
+  border-left: 3px solid #D9D9D9;
+  line-height: 1.4;
+}
+
+/* Nachtragsakte */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chips:empty {
+  display: none;
+}
+
+.chip {
+  min-height: 0;
+  padding: 8px 14px;
+  border: 1.5px solid #17181A;
+  background: #FFFFFF;
+  color: #17181A;
+  font-size: 15px;
+}
+
+#a_vorschau h2 {
+  margin: 18px 0 6px;
+  font-size: 17px;
+}
+
+.akte-zeile {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 0 8px 12px;
+  border-left: 3px solid #D9D9D9;
+}
+
+.akte-zeile small {
+  color: #5C5F66;
+  font-size: 13px;
+}
+
+.akte-zeile span {
+  font-size: 15px;
+  line-height: 1.4;
+}

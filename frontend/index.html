@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#D72622">
+  <meta name="color-scheme" content="light">
+  <link rel="stylesheet" href="style.css">
+  <title>Polier.ai</title>
+</head>
+<body class="start">
+  <button id="menue_knopf" class="menue" aria-label="Menü öffnen">☰</button>
+  <main>
+    <p id="meldung" hidden></p>
+
+    <section id="seite_start">
+      <div class="mitte">
+        <h1>Sprich.<br>Wir schreiben<span class="punkt-rot">.</span></h1>
+        <p class="unterzeile">Vom Zuruf auf der Baustelle zum fertigen Schreiben.</p>
+        <div class="mic-zeile">
+          <button id="mikro" aria-label="Aufnehmen">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg>
+          </button>
+          <div class="mic-text">
+            <p>Tippen und<br>sprechen</p>
+            <select id="sprache" class="sprachwahl" aria-label="Sprache der Aufnahme">
+              <option value="de-DE">Deutsch</option>
+              <option value="tr-TR">Türkçe</option>
+              <option value="pl-PL">Polski</option>
+              <option value="ro-RO">Română</option>
+              <option value="hr-HR">Hrvatski</option>
+              <option value="sr-RS">Srpski</option>
+              <option value="bg-BG">Български</option>
+              <option value="ru-RU">Русский</option>
+              <option value="uk-UA">Українська</option>
+              <option value="sq-AL">Shqip</option>
+              <option value="cs-CZ">Čeština</option>
+              <option value="hu-HU">Magyar</option>
+              <option value="it-IT">Italiano</option>
+              <option value="pt-PT">Português</option>
+              <option value="ar-SA">العربية</option>
+              <option value="en-US">English</option>
+            </select>
+            <button id="start_notizen" class="textlink">Notizen →</button>
+          </div>
+        </div>
+        <p id="mikro_stand" class="klein" hidden></p>
+      </div>
+
+      <div class="unten">
+        <button id="waechter" class="waechter" hidden></button>
+        <p id="foto_stand" class="hinweis" hidden></p>
+        <div class="zeile">
+          <label id="foto_knopf" for="foto" aria-label="Foto aufnehmen">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+          </label>
+          <input id="text" type="text" placeholder="oder schreib hier …">
+          <button id="senden" class="haupt" data-symbol="1" aria-label="Ablegen"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg></button>
+        </div>
+        <input id="foto" type="file" accept="image/*" capture="environment" multiple hidden>
+      </div>
+    </section>
+
+    <section id="seite_felder" hidden>
+      <h1>Prüfen</h1>
+      <p id="fehlend" class="hinweis" hidden></p>
+      <label>Gewerk <input id="gewerk" type="text"></label>
+      <label>Beteiligte <input id="beteiligte" type="text" placeholder="z. B. Mitarbeiter Ali Genc"></label>
+      <label>Ursache <input id="ursache" type="text"></label>
+      <label>Folge <input id="folge" type="text"></label>
+      <label>Dauer in Tagen <input id="dauer" type="number" min="0"></label>
+      <p id="kosten_hinweis" class="hinweis" hidden></p>
+      <label>Empfänger
+        <select id="empfaenger_wahl"></select>
+      </label>
+      <div id="empfaenger_frei" hidden>
+        <label>Name <input id="ef_name" type="text" placeholder="z. B. Dachdecker Huber GmbH"></label>
+        <label>Anschrift <input id="ef_anschrift" type="text" placeholder="Straße, PLZ Ort"></label>
+        <label>E-Mail <input id="ef_mail" type="email" placeholder="für den Mail-Knopf, optional"></label>
+      </div>
+      <div id="kopie_block">
+        <p class="feldname">Kopie an</p>
+        <div id="kopie_liste"></div>
+        <label>Weitere <input id="kopie_frei" type="text" placeholder="z. B. Architekturbüro Plan &amp; Bau"></label>
+      </div>
+      <label>Brieftyp
+        <select id="brieftyp">
+          <option value="behinderung">Behinderungsanzeige</option>
+          <option value="mehrkosten">Mehrkostenanzeige</option>
+          <option value="bedenken">Bedenkenanzeige</option>
+          <option value="mangel">Mängelanzeige</option>
+          <option value="unfall">Unfallmeldung</option>
+          <option value="reklamation">Reklamation</option>
+          <option value="notiz">Aktennotiz</option>
+        </select>
+      </label>
+      <button id="brief_erzeugen" class="haupt">Brief erzeugen</button>
+      <button id="zurueck_start" class="neben">Zurück</button>
+    </section>
+
+    <section id="seite_brief" hidden>
+      <h1 id="b_titel">Brief</h1>
+      <label>Rechtsgrundlage <input id="b_rechtsgrundlage" type="text"></label>
+      <label>Absender <textarea id="b_absender" rows="2"></textarea></label>
+      <label>Empfänger <textarea id="b_empfaenger" rows="2"></textarea></label>
+      <label>Kopie an <input id="b_kopie_an" type="text" placeholder="mit Komma trennen, leer lassen für keine Kopie"></label>
+      <label>Ort, Datum <input id="b_ort_datum" type="text"></label>
+      <label>Betreff <input id="b_betreff" type="text"></label>
+      <label>Anrede <input id="b_anrede" type="text"></label>
+      <div id="absaetze"></div>
+      <label>Gruß <input id="b_gruss" type="text"></label>
+      <label>Unterzeichner <input id="b_unterzeichner" type="text"></label>
+      <p id="hinweis" class="klein"></p>
+      <label id="b_fotos_zeile" class="schalter" hidden>
+        <input id="b_fotos_an" type="checkbox" checked>
+        <span id="b_fotos_text">Fotos anhängen</span>
+      </label>
+      <p id="b_stand" class="hinweis" hidden></p>
+      <button id="export_pdf" class="haupt">Als PDF herunterladen</button>
+      <button id="b_kopieren" class="neben">Brieftext kopieren</button>
+      <button id="b_mail" class="neben">E-Mail öffnen</button>
+      <button id="export_docx" class="haupt">Als Word herunterladen</button>
+      <button id="zurueck_felder" class="neben">Zurück</button>
+    </section>
+
+    <section id="seite_menue" hidden>
+      <h1>Menü</h1>
+      <button id="gehe_start" class="menue-zeile">Start<small>Sprechen oder tippen</small></button>
+      <button id="gehe_plan" class="menue-zeile">Plan<small>Checkliste und Fristen</small></button>
+      <button id="gehe_notizen" class="menue-zeile">Notizen<small>Nach Tagen, als PDF</small></button>
+      <button id="gehe_zusammen" class="menue-zeile">Besprechung<small>Gespräch aufnehmen, Protokoll erstellen</small></button>
+      <button id="gehe_soll" class="menue-zeile">Soll und Ist<small>Abweichungen, Schreibvorschlag</small></button>
+      <button id="gehe_firmen" class="menue-zeile">Firmen<small>Briefkopf und Empfänger</small></button>
+      <button id="gehe_akte" class="menue-zeile">Nachtragsakte<small>Alles zu einem Vorgang als ein PDF</small></button>
+      <button id="gehe_dateien" class="menue-zeile">Dateien<small>Erstellte Briefe</small></button>
+      <button id="gehe_demo" class="menue-zeile">Demo-Daten laden<small>Notizen, Foto, Zahlen, Protokoll</small></button>
+      <button id="gehe_server" class="menue-zeile">Server<small>Adresse ändern, Verbindung prüfen</small></button>
+      <button id="menue_zu" class="neben">Schließen</button>
+      <p id="version" class="klein"></p>
+    </section>
+
+    <section id="seite_plan" hidden>
+      <h1>Plan<span class="punkt-rot">.</span></h1>
+      <p id="plan_stand" class="klein"></p>
+      <div id="liste"></div>
+      <label>Neuer Punkt <input id="neu_text" type="text" placeholder="z. B. Lieferzeit Heizung klären"></label>
+      <label>Frist <input id="neu_frist" type="date"></label>
+      <button id="punkt_neu" class="haupt">Hinzufügen</button>
+    </section>
+
+    <section id="seite_notizen" hidden>
+      <h1>Notizen</h1>
+      <div id="notizliste"></div>
+    </section>
+
+    <section id="seite_zusammen" hidden>
+      <h1>Besprechung<span class="punkt-rot">.</span></h1>
+      <p class="unterzeile">Nimm das Gespräch auf, das Protokoll kommt von allein.</p>
+      <input id="z_quelle" type="hidden" value="protokoll">
+      <div class="mic-zeile">
+        <button id="z_mikro" aria-label="Gespräch aufnehmen">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg>
+        </button>
+        <div class="mic-text">
+          <p id="z_mikro_text">Tippen zum<br>Aufnehmen</p>
+        </div>
+      </div>
+      <p id="z_stand" class="hinweis" hidden></p>
+      <label>Mitschrift <textarea id="z_text" rows="10" placeholder="Gespräch aufnehmen oder Text hier einfügen …"></textarea></label>
+      <button id="z_start" class="haupt">Protokoll erstellen</button>
+      <div id="z_ergebnis"></div>
+      <button id="z_punkte" class="neben" hidden>Offene Punkte in den Plan</button>
+      <button id="z_pdf" class="neben" hidden>Als PDF herunterladen</button>
+    </section>
+
+    <section id="seite_soll" hidden>
+      <h1>Soll und Ist</h1>
+      <div id="s_zeilen"></div>
+      <button id="s_zeile_neu" class="neben">Position hinzufügen</button>
+      <label>Was war los? <textarea id="s_notizen" rows="3" placeholder="z. B. Lieferung Estrich kam nicht, Kran ausgefallen …"></textarea></label>
+      <label>Ab wie viel Prozent unter Plan ist es kritisch?
+        <input id="s_schwelle" type="number" min="1" max="90" value="15">
+      </label>
+      <button id="s_start" class="haupt">Ausrechnen</button>
+      <button id="s_bewerten" class="neben" hidden>Bewerten und Schreiben vorschlagen</button>
+      <div id="s_ergebnis"></div>
+      <button id="s_pdf" class="neben" hidden>Als PDF herunterladen</button>
+    </section>
+
+    <section id="seite_firmen" hidden>
+      <h1>Firmen</h1>
+      <h2>Eigene Firma (Briefkopf)</h2>
+      <label>Firma <input id="f_firma" type="text"></label>
+      <label>Anschrift <input id="f_anschrift" type="text"></label>
+      <label>Unterzeichner <input id="f_unterzeichner" type="text"></label>
+      <label>Bauvorhaben <input id="f_bauvorhaben" type="text"></label>
+      <label>Ort <input id="f_ort" type="text"></label>
+      <h2>Tagessätze (netto)</h2>
+      <p class="klein">Damit rechnet die App die Kostenfolge einer Behinderung oder von
+        Mehrkosten aus. Leer lassen, wenn keine Beträge in den Brief sollen.</p>
+      <label>Personal pro Tag in € <input id="f_kosten_personal" type="number" min="0" inputmode="decimal" placeholder="z. B. 2400"></label>
+      <label>Geräte und Vorhaltung pro Tag in € <input id="f_kosten_geraete" type="number" min="0" inputmode="decimal" placeholder="z. B. 650"></label>
+      <button id="f_speichern" class="haupt">Briefkopf speichern</button>
+
+      <h2>Empfänger</h2>
+      <div id="f_liste"></div>
+      <label>Name <input id="f_neu_name" type="text" placeholder="z. B. Estrich Vogl KG"></label>
+      <label>Anschrift <input id="f_neu_anschrift" type="text"></label>
+      <label>E-Mail <input id="f_neu_mail" type="email"></label>
+      <label>Gewerk <input id="f_neu_gewerk" type="text" placeholder="z. B. Estrich, leer lassen beim Bauherrn"></label>
+      <button id="f_neu" class="neben">Empfänger hinzufügen</button>
+      <button id="f_beispiele" class="neben">Beispielfirmen laden</button>
+    </section>
+
+    <section id="seite_akte" hidden>
+      <h1>Nachtragsakte</h1>
+      <p class="unterzeile">Notizen, Fotos und Schreiben zu einem Vorgang, lückenlos und nach Datum.
+        Für den Nachtrag und den Streitfall.</p>
+      <label>Stichwort <input id="a_wort" type="text" placeholder="z. B. Estrich" autocomplete="off"></label>
+      <div id="a_vorschlaege" class="chips"></div>
+      <div id="a_vorschau"></div>
+      <button id="a_pdf" class="haupt" hidden>Akte als PDF</button>
+      <button id="a_docx" class="neben" hidden>Akte als Word</button>
+    </section>
+
+    <section id="seite_server" hidden>
+      <h1>Server</h1>
+      <p class="klein">Normalerweise liefert derselbe Server die App aus, dann bleibt das Feld
+        leer. Wenn der Tunnel neu gestartet wurde und eine neue Adresse hat, trag sie hier ein.
+        Es braucht dafür keine neue Version der App.</p>
+      <label>Adresse <input id="sv_adresse" type="url" placeholder="https://… .trycloudflare.com"></label>
+      <p id="sv_stand" class="hinweis" hidden></p>
+      <button id="sv_pruefen" class="haupt">Speichern und prüfen</button>
+      <button id="sv_leeren" class="neben">Zurücksetzen</button>
+    </section>
+
+    <section id="seite_dateien" hidden>
+      <h1>Dateien</h1>
+      <div id="dateiliste"></div>
+    </section>
+  </main>
+
+  <div id="notiz_blatt" class="schleier" hidden>
+    <div class="blatt">
+      <h1>Notiz bearbeiten</h1>
+      <label>Text <textarea id="n_text" rows="4"></textarea></label>
+      <button id="n_speichern" class="haupt">Speichern</button>
+      <button id="n_loeschen" class="neben">Löschen</button>
+      <button id="n_zu" class="neben">Abbrechen</button>
+    </div>
+  </div>
+
+  <div id="punkt_blatt" class="schleier" hidden>
+    <div class="blatt">
+      <h1>Punkt bearbeiten</h1>
+      <label>Text <input id="p_text" type="text"></label>
+      <label>Frist <input id="p_frist" type="date"></label>
+      <label class="schalter"><input id="p_erledigt" type="checkbox"> Erledigt</label>
+      <button id="p_speichern" class="haupt">Speichern</button>
+      <button id="p_loeschen" class="neben">Löschen</button>
+      <button id="p_zu" class="neben">Abbrechen</button>
+    </div>
+  </div>
+
+  <div id="frage" class="schleier" hidden>
+    <div class="blatt">
+      <h1 id="frage_titel">Sicher?</h1>
+      <p id="frage_text" class="klein"></p>
+      <button id="frage_ja" class="haupt">Ja</button>
+      <button id="frage_nein" class="neben">Abbrechen</button>
+    </div>
+  </div>
+
+  <div id="waechter_blatt" class="schleier" hidden>
+    <div class="blatt">
+      <h1>Ohne Anzeige</h1>
+      <p class="klein">Diese Vorgänge sind erfasst, aber es ist noch kein Schreiben rausgegangen.</p>
+      <div id="waechter_liste"></div>
+      <button id="waechter_zu" class="neben">Schließen</button>
+    </div>
+  </div>
+
+  <div id="s_neu" class="schleier" hidden>
+    <div class="blatt">
+      <h1>Neue Position</h1>
+      <label>Gewerk <input id="sn_gewerk" type="text" placeholder="z. B. Estrich"></label>
+      <label>Tätigkeit <input id="sn_taetigkeit" type="text" placeholder="z. B. einbringen 2. OG"></label>
+      <label>Einheit
+        <select id="sn_einheit">
+          <option value="m²">m² (Quadratmeter)</option>
+          <option value="m³">m³ (Kubikmeter)</option>
+          <option value="lfm">lfm (laufende Meter)</option>
+          <option value="m">m (Meter)</option>
+          <option value="Stück">Stück</option>
+          <option value="Paletten">Paletten</option>
+          <option value="t">t (Tonnen)</option>
+          <option value="kg">kg</option>
+          <option value="Stunden">Stunden</option>
+          <option value="Tage">Tage</option>
+          <option value="Wohnungen">Wohnungen</option>
+          <option value="Räume">Räume</option>
+        </select>
+      </label>
+      <label>Soll, also 100 Prozent
+        <input id="sn_soll" type="number" min="1" inputmode="decimal" placeholder="z. B. 400">
+      </label>
+      <button id="sn_ok" class="haupt">Hinzufügen</button>
+      <button id="sn_zu" class="neben">Abbrechen</button>
+    </div>
+  </div>
+
+  <div id="wahl" class="schleier" hidden>
+    <div class="blatt">
+      <h1>Was soll daraus werden?</h1>
+      <button id="wahl_dokument" class="menue-zeile wahl-haupt">Offizielles Dokument<small>Brief mit Rechtsgrundlage, PDF oder Word</small></button>
+      <button id="wahl_plan" class="menue-zeile">In den Plan<small>Aufgabe mit Datum, z. B. Lieferung übermorgen</small></button>
+      <button id="wahl_notiz" class="menue-zeile">Nur eine Notiz<small>Wird gespeichert, kein Brief</small></button>
+      <button id="wahl_zu" class="neben">Abbrechen</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

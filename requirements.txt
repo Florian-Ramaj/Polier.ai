@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+anthropic
+python-dotenv
+python-docx
+fpdf2
+icalendar
+python-multipart
